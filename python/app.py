@@ -8,8 +8,8 @@ tentativas_restantes = 5
 
 janela = Tk()
 janela.title("Jogo de Advinhação")
-janela.geometry("400x400")
-
+janela.geometry("600x400")
+janela.config(bg="lightblue")
 
 def ConferirNumero():
     global tentativas_restantes
@@ -35,26 +35,26 @@ def ConferirNumero():
             # Bloquear o botão após o fim das tentativas
             botao.config(state="disabled")
     except ValueError:
-        resposta.config(text="Por favor, insira um número válido.")
+        resposta.config(text="Por favor, insira um número válido.", font="Arial", fg="blue", bg="lightblue")
 
 
-txt1 = ttk.Label(janela, text="Seja bem vindo ao Jogo de Adivinhação!!")
-txt1.grid(column=0, row=0, padx=50, pady=10)
+txt1 = Label(janela, text="Seja bem vindo ao Jogo de Adivinhação!!", font=("Arial", 16), fg="blue", bg="lightblue")
+txt1.grid(column=0, row=0, padx=100, pady=10)
 
-txt2 = ttk.Label(janela, text="Digite um númeor entre 1 e 50.")
+txt2 = Label(janela, text="Digite um númeor entre 1 e 50.", font=("Arial", 13), fg="blue", bg="lightblue")
 txt2.grid(column=0, row=1, padx=25, pady=10)
 
-txt3 = ttk.Label(janela, text=f"Você possui apenas {tentativas_restantes} tentativas.")
+txt3 = Label(janela, text=f"Você possui apenas {tentativas_restantes} tentativas.", font=("Arial", 13), fg="blue", bg="lightblue")
 txt3.grid(column=0, row=2, padx=25, pady=10)
 
 num = StringVar()
-numero = ttk.Entry(janela, textvariable=num)
-numero.grid(column=0, row=3, padx=100, pady= 10)
+numero = Entry(janela, textvariable=num)
+numero.grid(column=0, row=3, padx=150, pady= 10)
 
-botao = ttk.Button(janela, command=ConferirNumero, text="Enviar")
+botao = Button(janela, command=ConferirNumero, text="Enviar", font=("Arial"), fg="white", bg="red")
 botao.grid(column=0, row=6, padx=100, pady=10)
 
-resposta = ttk.Label(janela, text="")
-resposta.grid(column=0, row=7, padx=10, pady=10)
+resposta = Label(janela, text="", font="Arial", fg="blue", bg="lightblue")
+resposta.grid(column=0, row=7, padx=100, pady=10)
 
 janela.mainloop()
