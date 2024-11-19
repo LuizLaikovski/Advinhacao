@@ -1,5 +1,4 @@
 from tkinter import *
-from tkinter import ttk
 from random import randint
 
 numeroParaAdivinhar = randint(1, 50)
@@ -17,9 +16,9 @@ def ConferirNumero():
         valor = int(num.get())
         if tentativas_restantes > 1:
             if valor < numeroParaAdivinhar:
-                resposta.config(text="Maior")
+                resposta.config(text=f"O número secreto é maior que {valor} e menor que 50")
             elif valor > numeroParaAdivinhar:
-                resposta.config(text="Menor")
+                resposta.config(text=f"O númeor secreto é menor que {valor} e maior que 0")
             else:
                 resposta.config(text="Acertouuu!!!!!!")
                 txt3.config(text="Parabéns! Você acertou o número!")
